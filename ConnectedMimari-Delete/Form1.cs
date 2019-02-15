@@ -21,8 +21,8 @@ namespace ConnectedMimari_Delete
 
         private void btnSil_Click(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection(@"Server=METEHANKORAY\SQLEXPRESS; Initial Catalog=BankaDB; Integrated Security=true");
-            SqlCommand cmd = new SqlCommand("Delete From Hesaplar where Id='"+id+"'");
+            SqlConnection con = new SqlConnection(@"Server=Serverİsmi; Initial Catalog=VeritabanıAdı; Integrated Security=true");
+            SqlCommand cmd = new SqlCommand("Delete From TabloAdı where KolonAdı=Koşul...");
             cmd.Connection = con;
             con.Open();
             int sonuc = cmd.ExecuteNonQuery();
@@ -35,28 +35,21 @@ namespace ConnectedMimari_Delete
                 MessageBox.Show("Silme İşlemi Başarısız");
             }
             con.Close();
-            Listele();
+
+            //Serverİsmi: VeriTabanımıza bağlandığımız ServerName kısmı yazılacak.
+            //Database:Veritabanı İsmi(Hangi veritabanı ile çalışacaksak o veritabanı yazılacak.)
+            //Integrated Security=SQL'e WindowsAuthentication ile bağlandıysak bağlantı güvenilir diye belirtmek için yazılacak.
+            //Tabloİsmi: Veritabanında hangi tablo ile işlem yapmak istiyorsak o tabloyu Tabloİsmi diye belirttiğim yere yazılacak.
+            //Kolon1-Kolon2:Hangi kolonlara ekleme yapacakak o kolonları yazıyoruz.Textbox1 Kolon1'e - TextBox2 Kolon2'ye yazılacak.
+            //Koşul:Silmek İstediğimiz koşulu yazıyoruz.Genellikle ID'ye göre silme işlemi yapılır.
+            //ExecuteNonQuery: Ekleme işleminin gerçekleşmesi için yazılacak.
+
 
         }
-        int id;
         private void Form1_Load(object sender, EventArgs e)
         {
-            Listele();
-
         }
 
-        private void Listele()
-        {
-            SqlConnection con = new SqlConnection(@"Server=METEHANKORAY\SQLEXPRESS; Initial Catalog=BankaDB; Integrated Security=true");
-            SqlDataAdapter da = new SqlDataAdapter("Select * From Hesaplar", con);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            dataGridView1.DataSource = dt;
-        }
-
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            id = (int)dataGridView1.CurrentRow.Cells["Id"].Value;
-        }
+        
     }
 }
