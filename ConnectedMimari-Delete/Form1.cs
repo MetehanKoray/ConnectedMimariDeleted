@@ -40,7 +40,6 @@ namespace ConnectedMimari_Delete
             //Database:Veritabanı İsmi(Hangi veritabanı ile çalışacaksak o veritabanı yazılacak.)
             //Integrated Security=SQL'e WindowsAuthentication ile bağlandıysak bağlantı güvenilir diye belirtmek için yazılacak.
             //Tabloİsmi: Veritabanında hangi tablo ile işlem yapmak istiyorsak o tabloyu Tabloİsmi diye belirttiğim yere yazılacak.
-            //Kolon1-Kolon2:Hangi kolonlara ekleme yapacakak o kolonları yazıyoruz.Textbox1 Kolon1'e - TextBox2 Kolon2'ye yazılacak.
             //Koşul:Silmek İstediğimiz koşulu yazıyoruz.Genellikle ID'ye göre silme işlemi yapılır.
             //ExecuteNonQuery: Ekleme işleminin gerçekleşmesi için yazılacak.
 
